@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html
+
+<head>
+
+    <title>Tab View Template</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+
+    <script type="text/javascript" charset="utf-8" src="lib/xdk-win8x-compat.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+ 
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
+    
+<script >
+ 
+    
+$( document ).ready(function() {
+    
+   CalcularFondos();             
+        
+ $('#txtSalario').change(function(){
+        CalcularFondos();       
+        
+    });
+    
+
+    
+function CalcularFondos(){
+    var salario = $('#txtSalario').val();    
+    var manutencion = salario * 0.3;
+    var amigos = salario * 0.2;
+    var aprender = salario * 0.15;
+    var viajes = salario * 0.10;
+    var inversion = salario * 0.25; 
+        
+    var lineamanutencion= 'Fondo 1: (30%) <b>$ ' + manutencion +  '</b> para gastos de manutención';
+    var lineaamigos= 'Fondo 2: (20%)<b>$ ' + amigos +  '</b> para hacer amigos';
+    var lineaaprender= 'Fondo 3: (15%)<b>$ ' + aprender +  '</b> para aprender';
+    var lineaviajes= 'Fondo 4: (10%)<b>$ ' + viajes +  '</b> para viajar al extranjero';
+    var lineainvertir= 'Fondo 5 (25%): <b>$ ' + inversion +  '</b> para invertir';
+        
+    $("#divLineaManutencion").html(lineamanutencion);
+    $("#divLineaAmigos").html(lineaamigos);
+    $("#divLineaAprender").html(lineaaprender);
+    $("#divLineaViajes").html(lineaviajes);
+    $("#divLineaInvertir").html(lineainvertir);
+    
+    var cuentasmanutencion = 'Si ganas $ <b> ' + salario + ' mensual, </b> cuentas con $ ' + manutencion + ' para tus gastos de manutención.';
+    var cuentasamigos = 'Si ganas $ <b> ' + salario + ' mensual, </b> destina $ ' + amigos + ' para hacer amigos.';
+    var cuentasaprender = 'Si ganas $ <b> ' + salario + ' mensual, </b> invierte $ ' + aprender + ' en tu aprendizaje.';
+    var cuentasviajes = 'Si ganas $ <b> ' + salario + ' mensual, </b> ahorra  $ ' + viajes + ' para viajar al extranjero.';
+    var cuentasinvertir = 'Si ganas $ <b> ' + salario + ' mensual, </b> destina $ ' + inversion + ' para invertir, en un año tendras una inversión de <b> $ ' + inversion * 12 + ' </b> mas las ganancias o intereses.';
+    
+     $("#divCuentasManutencion").html(cuentasmanutencion);
+     $("#divCuentasAmigos").html(cuentasamigos);
+     $("#divCuentasAprender").html(cuentasaprender);
+     $("#divCuentasViajes").html(cuentasviajes);
+     $("#divCuentasInvertir").html(cuentasinvertir);
+    
+    var lineamanutencionmenu= '<b>Fondo 1: Manutenión -> $ ' + manutencion +  '</b>';
+    var lineaamigosmenu= '<b>Fondo 2: Amigos -> $ ' + amigos +  '</b>';
+    var lineaaprendermenu= '<b>Fondo 3: Aprendizaje -> $ ' + aprender +  '</b>';
+    var lineaviajesmenu= '<b>Fondo 4: Viajes -> $ ' + viajes +  '</b>';
+    var lineainvertirmenu= '<b>Fondo 5: Inversión -> $ ' + inversion +  '</b>';
+    
+     $("#divMenuManutencion").html(lineamanutencionmenu);
+     $("#divMenuAmigos").html(lineaamigosmenu);
+     $("#divMenuAprendizaje").html(lineaaprendermenu);
+     $("#divMenuViajes").html(lineaviajesmenu);
+     $("#divMenuInversion").html(lineainvertirmenu);
+    
+}
+})
+   
+    
+
+  </script>
+
+</head>
+
+<body >
+
+    <div id="splashscreen" class='ui-loader heavy'>
+        I Wanna Be Rich
+        <br>
+        <br>
+        <span class='ui-icon ui-icon-loading spin'></span>
+        <h1>I Wanna Be Rich</h1>
+    </div>
+
+    <div class="view" >
+        <header>
+            <h1>Title</h1>
+<!--            <a id="backButton" class="button back" style="visibility: visible; ">Back</a>  -->
+        </header>
+
+        <div class="pages">
+
+            <!--Tab View Pages-->
+            <div class="panel" data-title="Home" id="tab1" data-selected="true">
+                <img src="images/dinero.png" alt="Money" class="imgcenter"></img>
+                
+             <div
+                  
+                    <p><center><h1>¿Quieres ser Millonario?</h1></center></p>
+                    <p><center><b>Te muestro como debes distribuir tu salario mensual:</b></center></p>
+                    
+             </div>
+             <div>
+                    <br><center>Supongamos que ganas (Puedes cambiar el monto):</center></br>
+                    
+                </div>
+             <div>
+                  <input type="number" id="txtSalario" value="7500" required="required" placeholder="Cuanto ganas?"> 
+                </div>
+            
+             
+         <div>
+                    <p><center>Deberías distribuir tu dinero de la siguiente manera:</center></p>
+                   
+                </div>
+      
+        <div>
+             <p><div id="divLineaManutencion"> </div></p>
+            
+            <p><div id="divLineaAmigos"> </div></p>
+            
+            <p><div id="divLineaAprender"> </div></p>
+            
+            <p><div id="divLineaViajes"> </div></p>
+            
+            <p><div id="divLineaInvertir"> </div></p>
+            
+        </div>
+      
+ 
+        
+        </div>
+
+
+
+
+<div class="panel" data-title="Fondos" id="tab2">
+                <ul class="list">
+                    <li><a href="#position1"><div id="divMenuManutencion"></div></di></b></a></li>
+                    <li><a href="#position2"><div id="divMenuAmigos"></div> </a></li>
+                    <li><a href="#position3"><div id="divMenuAprendizaje"></div></a></li>
+                    <li><a href="#position4"><div id="divMenuViajes"></div></a></li>
+                    <li><a href="#position5"><div id="divMenuInversion"></div></a></li>
+                </ul>
+            </div>
+
+            <div class="panel" title="Fondo 1" id="position1">
+                <figure class="figure-align">
+                    <img src="images/manutencion.png" class="imgcenter">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+                <p><center><b>Fondo 1: </b></center></p>
+                <div id="divCuentasManutencion"> </div>
+                <div>                  
+                     <p><b>Manutención: </b>Este primer fondo debe ser utilizado para subsistir. La realidad es que será una forma bastante sencilla de vivir.</p> 
+                </div>
+            </div>
+
+            <div class="panel" title="Fondo 2" id="position2">
+                <figure class="figure-align">
+                    <img src="images/amigos.jpg" class="imgcenter">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+                <p><center><b>Fondo 2: </b></center></p>
+                <div id="divCuentasAmigos"> </div>
+                <div>
+                   
+                   <p><b>Hacer amigos:</b> Este fondo será utilizado básicamente para hacer amigos y ampliar tu círculo de amistades y conocidos. Separa lo necesario para pagar tu plan móvil, el resto del dinero debes invertirlo para invitar a dos amigos a almorzar cada mes.</p> 
+                </div>
+            </div>
+
+            <div class="panel" title="Fondo 3" id="position3">
+                <figure class="figure-align">
+                    <img src="images/aprender.png" class="imgcenter">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+                <p><center><b>Fondo 3:</b></center></p>
+                <div id="divCuentasAprender"> </div>
+                <div>
+                   
+                   <p><b>Aprendizaje: </b> Mensualmente debes invertir en libros. Sí, libros. Sé consciente que no tienes mucho dinero y que debes invertir en tu aprendizaje.</p>
+                </div>
+            </div>
+
+            <div class="panel" title="Fondo 4" id="position4">
+                <figure class="figure-align">
+                    <img src="images/viajes.png" class="imgcenter">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+                <p><center><b>Fondo 4:</b></center></p>
+                <div id="divCuentasViajes"> </div>
+                <div>                    
+                    <p><b>Viajes al extranjero: </b> Prémiate con un viaje al extranjero una vez al año, esto te permitirá seguir creciendo en tu experiencia de vida, y por favor, quédate en hostales y ahorra dinero.</p>
+                </div>
+            </div>
+
+            <div class="panel" title="Fondo 5" id="position5">
+                <figure class="figure-align">
+                    <img src="images/invertir.jpg" class="imgcenter">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+                <p><center><b>Fondo 5:</b></center></p>
+                <div id="divCuentasInvertir"> </div>
+
+                <div>
+                   
+                    <p><b>Invierte:</b> Ahorra en tu cuenta bancaria y hazlos crecer como si fuera el capital para tu primer idea de negocio. Invierte tu dinero en negocios pequeños es una buena opción ya que estos son los más seguros; visita por ejemplo tiendas mayoristas y mira qué puedes vender, si pierdes dinero no habrán perdidas considerables.</p>
+                </div>
+            </div>
+
+            <div class="panel" data-title="Links" id="tab3" >
+                <ul class="list">
+                     <li><a href="http://www.emprendiendohistorias.com/el-hombre-mas-rico-de-asia-te-ensena-como-invertir-tu-salario//">Fuente de los cálculos</a></li>
+                    <li><a href="http://www.bestday.com.mx/">Agencia de viajes</a></li>
+                    <li><a href="http://www.gandhi.com.mx/">Librerías</a></li>
+                </ul>
+            </div>
+
+        <div class="panel" data-title="About" id="tab4" >
+                <img src="images/uinik.png" class="imgcenter"></img>
+                <div>
+                    <p><center>App desarrollada por Uinik </center></p>                  
+                    
+                </div>
+            </div>
+     
+           
+
+</div>     
+
+        <!-- The clearHistory() function is added wherever we do not want the back button
+            clearHistory() is removed to add the back button functionality. -->
+        <footer>
+            <a href="#tab1" class="icon home" onclick="$.afui.clearHistory()">Home</a>
+            <a href="#tab2" class="icon info">Fondos</a>                    
+            <a href="#tab3" class="icon star">Links</a>
+            <a href="#tab4" class="icon question">About</a>
+        </footer>
+   
+</div>
+
+</body>
+
+</html>
